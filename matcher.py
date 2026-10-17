@@ -1,8 +1,10 @@
+from pathlib import Path
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 def generate_user_vectors(n_users=10, vector_size=128):
     data = np.random.rand(n_users, vector_size)
+    Path("data").mkdir(exist_ok=True)
     np.save("data/users.npy", data)
     return data
 
